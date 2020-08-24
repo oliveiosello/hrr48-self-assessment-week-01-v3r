@@ -29,9 +29,52 @@
   */
 
 var Tree = function(value) {
+  var newTree = {};
   this.value = value;
   this.children = [];
 };
 
+Tree.prototype.map = function(tree, map()) {
+  var mappedTree = {};
+// mappedTree.value = map(this.value)
+// mappedTree.children = map(this.children)
+// need to add the result of calling map on the value of each key
+//// determine if child array has children, call map on each element of child array
+///// recursive function
+  }
+
+}
+
+Tree.prototype.addChildren = function(value) {
+  var childTree = Tree(value);
+  this.children.push(childTree);
+
+};
 
 
+// create help func add children
+//
+
+// create map method for tree class
+// in mapping func
+// out new tree
+//// accepts map func as only arg
+//// create result tree obj
+//// traverse tree
+////// apply input fun to each key/val
+////// add to result tree
+//// return result tree
+
+// tree {
+//// value: value,
+//// children: [
+////// value: value,
+////// children: [
+//////// value: value,
+//////// children: []
+//////// ]
+////// ]
+//// value: value,
+//// childre: []
+
+//}
