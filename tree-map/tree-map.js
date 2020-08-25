@@ -29,27 +29,33 @@
   */
 
 var Tree = function(value) {
-  var newTree = {};
   this.value = value;
   this.children = [];
 };
 
-Tree.prototype.map = function(tree, map()) {
-  var mappedTree = {};
+// Tree String
+// (String -> b)
+
+Tree.prototype.map = function(f) {
+  let newTree = new Tree();
+  newTree.value = f(this.value);
+  for (var i = 0; i < this.children.length; i++) {
+      newTree.children[i] = this.children[i].map(f);
+  }
+  return newTree;
+};
+
+Tree.prototype.addChild = function(value) {
+  let child = new Tree(value);
+  this.children.push(child);
+  return child;
+};
+
 // mappedTree.value = map(this.value)
 // mappedTree.children = map(this.children)
 // need to add the result of calling map on the value of each key
 //// determine if child array has children, call map on each element of child array
 ///// recursive function
-  }
-
-}
-
-Tree.prototype.addChildren = function(value) {
-  var childTree = Tree(value);
-  this.children.push(childTree);
-
-};
 
 
 // create help func add children
